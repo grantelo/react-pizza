@@ -6,6 +6,7 @@ import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { addPizzaToCart } from '../redux/actions/cart';
 import { fetchPizzas } from '../redux/actions/pizzas';
+import PizzaLoadingBlock from '../components/PizzaBlock/PizzaLoadingBlock';
 
 const categoryItems = ['Мясные', 'Вегетерианская', 'Гриль', 'Острые', 'Закрытые'];
 const sortItems = [
@@ -19,24 +20,33 @@ function Home() {
   const { category, sortBy } = useSelector(({ filters }) => filters);
   const pizzas = useSelector(({ pizzas }) => pizzas.items);
   const items = useSelector(({ cart }) => cart.items);
+  const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded)
 
   React.useEffect(() => {
     dispatch(fetchPizzas(category, sortBy));
   }, [sortBy, category]);
 
-  const onSelectCategory = (catIndex) => {
-    dispatch(setCategory(catIndex));
-  };
+  const onSelectCategory = React.useCallback(
+    (catIndex) => {
+      dispatch(setCategory(catIndex));
+    },
+    [],
+  )
 
-  const onSelectSortBy = (type) => {
-    dispatch(setSortBy(type));
-  };
+  const onSelectSortBy = React.useCallback(
+    (type) => {
+      dispatch(setSortBy(type));
+    },
+    [],
+  )
 
-  const handleAddPizzaToCart = (pizzaObj) => {
-    dispatch(addPizzaToCart(pizzaObj));
-  };
+  const handleAddPizzaToCart = React.useCallback(
+    (pizzaObj) => {
+      dispatch(addPizzaToCart(pizzaObj));
+    },
+    []
+  )
 
-  console.log(pizzas);
   return (
     <div className="container">
       <div className="content__top">
@@ -49,16 +59,19 @@ function Home() {
       </div>
       <h2 className="content__title">Все пиццы:</h2>
       <div className="content__items">
-        {pizzas.map((obj) => {
-          return (
-            <PizzaBlock
-              totalCount={items[obj.id] && items[obj.id].totalCount}
-              {...obj}
-              key={obj.id}
-              onClickAddPizza={handleAddPizzaToCart}
-            />
-          );
-        })}
+        {isLoaded ?
+          pizzas.map((obj) => {
+            return (
+              <PizzaBlock
+                totalCount={items[obj.id] && items[obj.id].totalCount}
+                {...obj}
+                key={obj.id}
+                onClickAddPizza={handleAddPizzaToCart}
+              />
+            );
+          })
+          : Array(8).fill(0).map((_, index) => <PizzaLoadingBlock key={index} />)
+        }
       </div>
     </div>
   );

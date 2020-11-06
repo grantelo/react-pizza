@@ -1,0 +1,12 @@
+/Users/grantallahverdan/Documents/react-pizza-2/bin/Debug/netcoreapp3.1/react-pizza-2.deps.json
+/Users/grantallahverdan/Documents/react-pizza-2/bin/Debug/netcoreapp3.1/react-pizza-2.runtimeconfig.json
+/Users/grantallahverdan/Documents/react-pizza-2/bin/Debug/netcoreapp3.1/react-pizza-2.runtimeconfig.dev.json
+/Users/grantallahverdan/Documents/react-pizza-2/bin/Debug/netcoreapp3.1/react-pizza-2.dll
+/Users/grantallahverdan/Documents/react-pizza-2/bin/Debug/netcoreapp3.1/react-pizza-2.pdb
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.csprojAssemblyReference.cache
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.AssemblyInfoInputs.cache
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.AssemblyInfo.cs
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.csproj.CoreCompileInputs.cache
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.dll
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.pdb
+/Users/grantallahverdan/Documents/react-pizza-2/obj/Debug/netcoreapp3.1/react-pizza-2.genruntimeconfig.cache

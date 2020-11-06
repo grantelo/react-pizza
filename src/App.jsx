@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import { Header } from './components/index';
-import Home from './pages/Home';
+import { Home, Cart } from './pages/index';
 
 import './sass/style.sass';
 
@@ -12,6 +12,7 @@ function App() {
       <Header />
       <div className="content">
         <Route path="/" component={Home} exact />
+        <Route path="/cart" component={Cart} exact />
       </div>
     </div>
   );

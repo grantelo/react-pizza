@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-function Sort({ items, onClickSortBy, activeSortBy }) {
+const Sort = React.memo(function Sort({ items, onClickSortBy, activeSortBy }) {
   const sortRef = React.useRef();
   const [visiblePopup, setVisiblePopup] = React.useState(false);
 
@@ -24,6 +24,7 @@ function Sort({ items, onClickSortBy, activeSortBy }) {
       }
     });
   });
+
 
   return (
     <div ref={sortRef} className="sort">
@@ -52,6 +53,6 @@ function Sort({ items, onClickSortBy, activeSortBy }) {
       )}
     </div>
   );
-}
+})
 
 export default Sort;

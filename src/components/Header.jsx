@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Button from './Button';
+import { Home } from '../pages';
 
 function Header() {
   const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
@@ -11,12 +12,12 @@ function Header() {
     <header className="header">
       <div className="container">
         <div className="header__logo">
-          <Link className="header__logo-link">
+          <Link className="header__logo-link" to="/">
             <img src={require('../assets/img/header/logo.svg')} alt="" />
           </Link>
         </div>
         <div className="header__cart">
-          <Link>
+          <Link to="/cart">
             <Button href="./assets/cart-empty.html" className="button button--cart">
               <span>{totalPrice}₽</span>
               <div className="button__delimiter"></div>

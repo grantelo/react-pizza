@@ -6,7 +6,7 @@ import Button from '../Button';
 const availableTypes = ['тонкое', 'традиционное'];
 const availableSizes = [26, 30, 40];
 
-function PizzaBlock({ id, name, imageUrl, types, sizes, price, onClickAddPizza, totalCount }) {
+const PizzaBlock = React.memo(function PizzaBlock({ id, name, imageUrl, types, sizes, price, onClickAddPizza, totalCount }) {
   const [activeSize, setActiveSize] = React.useState(sizes[0]);
   const [activeType, setActiveType] = React.useState(types[0]);
 
@@ -23,13 +23,14 @@ function PizzaBlock({ id, name, imageUrl, types, sizes, price, onClickAddPizza, 
       id,
       imageUrl,
       name,
-      types,
-      sizes,
+      type: availableTypes[activeType],
+      size: activeSize,
       price,
     };
 
     onClickAddPizza(obj);
   };
+
 
   return (
     <div className="pizza-block">
@@ -84,6 +85,6 @@ function PizzaBlock({ id, name, imageUrl, types, sizes, price, onClickAddPizza, 
       </div>
     </div>
   );
-}
+})
 
 export default PizzaBlock;
